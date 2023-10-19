@@ -1,20 +1,30 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
+
+function withOpacity(variableName: string) {
+  return ({ opacityValue }: { opacityValue: number }) => {
+    if (opacityValue !== undefined) {
+      return `rba(var(${variableName})), ${opacityValue}`;
+    }
+    return `rba(var(${variableName}))`;
+  };
+}
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      textColor: {},
+      backgroundColor: {},
+      borderColor: {},
+      fill: {},
+      keyframes: {},
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;
