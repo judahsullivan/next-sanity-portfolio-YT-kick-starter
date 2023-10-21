@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-}
-
-:root.dark {
+@layer base {
+  main {
+    @apply max-w-5xl mx-auto pt-[6rem];
+  }
 }
